@@ -127,7 +127,7 @@ func OrgGradeUpdate(c *vingo.Context) {
 // API组织类型删除
 func OrgGradeDelete(c *vingo.Context) {
 	var grade = mysql.Get[model.OrgGrade](c.Param("id"))
-	mysql.CheckHasChild(&model.OrgGrade{}, grade.ID)
+	mysql.CheckHasChild(&model.OrgGrade{}, grade.Id)
 	mysql.Delete(&grade)
 	c.ResponseSuccess()
 }

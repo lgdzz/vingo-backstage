@@ -4,18 +4,22 @@ import (
 	"github.com/lgdzz/vingo-utils/vingo"
 	"github.com/lgdzz/vingo-utils/vingo/db/mysql"
 	"github.com/lgdzz/vingo-utils/vingo/db/page"
+	"gorm.io/gorm"
 )
 
 type Account struct {
-	vingo.DbModel
-	OrgID   uint  `gorm:"column:org_id" json:"orgId"`                                                   // 组织ID
-	UserID  uint  `gorm:"column:user_id" json:"userId"`                                                 // 用户ID
-	RoleID  uint  `gorm:"column:role_id" json:"roleId"`                                                 // 角色ID
-	Status  int8  `gorm:"column:status;default:1" json:"status"`                                        // 1-启用|2-禁用
-	Extends any   `gorm:"column:extends;serializer:json" json:"extends"`                                // 附加属性，对象
-	User    *User `gorm:"joinForeignKey:user_id;foreignKey:id;references:UserID" json:"user,omitempty"` // 用户
-	Role    *Role `gorm:"joinForeignKey:role_id;foreignKey:id;references:RoleID" json:"role,omitempty"` // 角色
-	Org     *Org  `gorm:"joinForeignKey:org_id;foreignKey:id;references:OrgID" json:"org,omitempty"`    // 组织架构
+	ID        uint             `gorm:"primaryKey;column:id" json:"id"`
+	OrgID     uint             `gorm:"column:org_id" json:"orgId"`                                                   // 组织ID
+	UserID    uint             `gorm:"column:user_id" json:"userId"`                                                 // 用户ID
+	RoleID    uint             `gorm:"column:role_id" json:"roleId"`                                                 // 角色ID
+	Status    int8             `gorm:"column:status;default:1" json:"status"`                                        // 1-启用|2-禁用
+	Extends   any              `gorm:"column:extends;serializer:json" json:"extends"`                                // 附加属性，对象
+	User      *User            `gorm:"joinForeignKey:user_id;foreignKey:id;references:UserID" json:"user,omitempty"` // 用户
+	Role      *Role            `gorm:"joinForeignKey:role_id;foreignKey:id;references:RoleID" json:"role,omitempty"` // 角色
+	Org       *Org             `gorm:"joinForeignKey:org_id;foreignKey:id;references:OrgID" json:"org,omitempty"`    // 组织架构
+	CreatedAt *vingo.LocalTime `gorm:"column:created_at;" json:"createdAt"`
+	UpdatedAt *vingo.LocalTime `gorm:"column:updated_at" json:"updatedAt"`
+	DeletedAt gorm.DeletedAt   `gorm:"column:deleted_at" json:"deletedAt"`
 }
 
 func (m *Account) TableName() string {
