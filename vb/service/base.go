@@ -5,6 +5,7 @@ import (
 	"github.com/lgdzz/vingo-backstage/vb/model"
 	"github.com/lgdzz/vingo-utils/vingo"
 	"github.com/lgdzz/vingo-utils/vingo/db/mysql"
+	"github.com/lgdzz/vingo-utils/vingo/db/page"
 	"strings"
 )
 
@@ -179,7 +180,7 @@ func GetRuleListByRole(role *model.Role, rules *[]model.Rule, half bool) {
 }
 
 // 获取账户列表
-func AccountList(query *model.AccountQuery) (result []model.AccountList) {
+func AccountList(query *model.AccountQuery) page.Result {
 	db := mysql.Table("account AS acc").Joins("inner join `user` on acc.user_id=user.id").Joins("inner join `org` on acc.org_id=org.id").Joins("inner join `org_grade` AS og on org.grade_id=og.id").Joins("inner join `role` on acc.role_id=role.id").Select("acc.id,acc.status,acc.user_id,acc.org_id,acc.role_id,user.realname,user.username,user.phone,user.from_id,org.pid AS org_pid,org.name AS org_name,role.name AS role_name,og.name AS org_grade_name,og.id org_grade_id").Where("acc.deleted_at IS NULL AND user.deleted_at IS NULL AND org.deleted_at IS NULL AND og.deleted_at IS NULL AND role.deleted_at IS NULL")
 	if query.OrgID > 0 {
 		db = db.Where("acc.org_id=?", query.OrgID)
@@ -194,7 +195,22 @@ func AccountList(query *model.AccountQuery) (result []model.AccountList) {
 	if query.AccountID != nil {
 		db = db.Where("acc.id IN (?)", *query.AccountID)
 	}
-	db.Order("id desc").Find(&result)
+	return page.New[model.AccountList](db, page.Option{
+		Limit: page.Limit{Page: query.Page, Size: query.Size},
+		Order: page.OrderDefault(query.Order),
+	}, nil)
+}
+
+// 获取我的账户列表
+func MyAccountList(query *model.AccountQuery) (result []model.AccountList) {
+	db := mysql.Table("account AS acc").Joins("inner join `user` on acc.user_id=user.id").Joins("inner join `org` on acc.org_id=org.id").Joins("inner join `org_grade` AS og on org.grade_id=og.id").Joins("inner join `role` on acc.role_id=role.id").Select("acc.id,acc.status,acc.user_id,acc.org_id,acc.role_id,user.realname,user.username,user.phone,user.from_id,org.pid AS org_pid,org.name AS org_name,role.name AS role_name,og.name AS org_grade_name,og.id org_grade_id").Where("acc.deleted_at IS NULL AND user.deleted_at IS NULL AND org.deleted_at IS NULL AND og.deleted_at IS NULL AND role.deleted_at IS NULL")
+	if query.UserID > 0 {
+		db = db.Where("acc.user_id=?", query.UserID)
+	}
+	if query.Status > 0 {
+		db = db.Where("acc.status=?", query.Status)
+	}
+	db.Order("id desc").Scan(&result)
 	return
 }
 

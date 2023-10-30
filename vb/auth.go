@@ -75,7 +75,7 @@ func ChangePwd(c *vingo.Context) {
 
 // 我的账户列表
 func Accounts(c *vingo.Context) {
-	c.ResponseBody(service.AccountList(&model.AccountQuery{UserID: c.GetUserId(), Status: vingo.Enable}))
+	c.ResponseBody(service.MyAccountList(&model.AccountQuery{UserID: c.GetUserId(), Status: vingo.Enable}))
 }
 
 // 路由菜单权限

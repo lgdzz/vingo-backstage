@@ -28,6 +28,7 @@ func (m *Account) TableName() string {
 
 type AccountQuery struct {
 	page.Limit
+	*page.Order
 	OrgID     uint    `form:"orgId"`
 	UserID    uint    `form:"userId"`
 	RoleID    uint    `form:"roleId"`
@@ -47,6 +48,8 @@ type AccountList struct {
 	Username     string `gorm:"column:username" json:"username"`
 	Realname     string `gorm:"column:realname" json:"realname"`
 	Phone        string `gorm:"column:phone" json:"phone"`
+	Avatar       string `gorm:"column:avatar" json:"avatar"`
+	CompanyName  string `gorm:"column:company_name" json:"companyName"`
 	RoleID       uint   `gorm:"column:role_id" json:"roleId"`
 	RoleName     string `gorm:"column:role_name" json:"roleName"`
 	FromID       uint   `gorm:"column:from_id" json:"fromId"`

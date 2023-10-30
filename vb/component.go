@@ -6,6 +6,7 @@ import (
 	"github.com/lgdzz/vingo-backstage/vb/service"
 	"github.com/lgdzz/vingo-utils/vingo"
 	"github.com/lgdzz/vingo-utils/vingo/db/mysql"
+	"github.com/lgdzz/vingo-utils/vingo/db/page"
 	"time"
 )
 
@@ -91,17 +92,22 @@ func (m *LoginComponentMethod) GetDictionary() map[string][]model.DictionarySimp
 }
 
 // 组织账户列表
-func (m *LoginComponentMethod) GetOrgAccount(orgId float64) []model.AccountList {
+func (m *LoginComponentMethod) GetOrgAccount(orgId float64) page.Result {
 	return service.AccountList(&model.AccountQuery{OrgID: m.orgIdDefault(orgId)})
 }
 
 // 部门账户列表
-func (m *LoginComponentMethod) GetDeptAccount(deptId float64) []model.AccountList {
+func (m *LoginComponentMethod) GetDeptAccount(deptId float64) page.Result {
 	var result = make([]model.AccountList, 0)
 	var accountIds []uint
 	mysql.Table("dept_member").Where("dept_id=?", uint(deptId)).Pluck("account_id", &accountIds)
 	if len(accountIds) == 0 {
-		return result
+		return page.Result{
+			Page:  1,
+			Size:  10,
+			Total: 0,
+			Items: result,
+		}
 	}
 	return service.AccountList(&model.AccountQuery{AccountID: &accountIds})
 }
