@@ -50,6 +50,7 @@ type AccountList struct {
 	Phone        string `gorm:"column:phone" json:"phone"`
 	Avatar       string `gorm:"column:avatar" json:"avatar"`
 	CompanyName  string `gorm:"column:company_name" json:"companyName"`
+	CompanyJob   string `gorm:"column:company_job" json:"companyJob"`
 	RoleID       uint   `gorm:"column:role_id" json:"roleId"`
 	RoleName     string `gorm:"column:role_name" json:"roleName"`
 	FromID       uint   `gorm:"column:from_id" json:"fromId"`

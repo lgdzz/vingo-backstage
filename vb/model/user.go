@@ -22,6 +22,7 @@ type User struct {
 	Remark      string `gorm:"column:remark" json:"remark"`                       // 备注
 	Avatar      string `gorm:"column:avatar" json:"avatar"`                       // 头像
 	CompanyName string `gorm:"column:company_name" json:"companyName"`            // 所在公司
+	CompanyJob  string `gorm:"column:company_job" json:"companyJob"`              // 所在公司职务
 	LastIP      string `gorm:"column:last_ip" json:"lastIp"`                      // 最后登录IP
 	LastTime    string `gorm:"column:last_time" json:"lastTime"`                  // 最后登录时间
 	FromChannel string `gorm:"column:from_channel;default:组织" json:"fromChannel"` // 来源渠道
@@ -48,6 +49,7 @@ type UserChangeInfoBody struct {
 	Avatar      string `json:"avatar"`
 	Realname    string `json:"realname"`
 	CompanyName string `json:"companyName"`
+	CompanyJob  string `json:"companyJob"`
 }
 
 type UserSimple struct {
@@ -57,6 +59,7 @@ type UserSimple struct {
 	Phone       string `gorm:"column:phone" json:"phone"`
 	Avatar      string `gorm:"column:avatar" json:"avatar"`
 	CompanyName string `gorm:"column:company_name" json:"companyName"`
+	CompanyJob  string `gorm:"column:company_job" json:"companyJob"`
 	Password    string `gorm:"column:password" json:"-"`
 	Salt        string `gorm:"column:salt" json:"-"`
 	Status      int8   `gorm:"column:status" json:"-"`

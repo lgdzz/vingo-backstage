@@ -51,6 +51,7 @@ func loginRes(c *vingo.Context, user *model.User) {
 		Phone:       user.Phone,
 		Avatar:      user.Avatar,
 		CompanyName: user.CompanyName,
+		CompanyJob:  user.CompanyJob,
 	}
 	c.Response(&vingo.ResponseData{Data: model.UserLoginResult{
 		Token: jwt.JwtIssued(jwt.JwtBody[model.UserSimple]{
@@ -82,6 +83,7 @@ func ChangeInfo(c *vingo.Context) {
 	user.Avatar = body.Avatar
 	user.Realname = body.Realname
 	user.CompanyName = body.CompanyName
+	user.CompanyJob = body.CompanyJob
 	mysql.Updates(&user, "realname", "avatar", "company_name")
 	c.ResponseSuccess()
 }
