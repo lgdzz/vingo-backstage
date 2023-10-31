@@ -84,7 +84,7 @@ func ChangeInfo(c *vingo.Context) {
 	user.Realname = body.Realname
 	user.CompanyName = body.CompanyName
 	user.CompanyJob = body.CompanyJob
-	mysql.Updates(&user, "realname", "avatar", "company_name")
+	mysql.Updates(&user, "realname", "avatar", "company_name", "company_job")
 	c.ResponseSuccess()
 }
 
