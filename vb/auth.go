@@ -45,10 +45,12 @@ func loginRes(c *vingo.Context, user *model.User) {
 	// 保存登录日志
 	go user.WriteLoginLog(c.GetRealClientIP())
 	var userSimple = model.UserSimple{
-		ID:       user.ID,
-		Username: user.Username,
-		Realname: user.Realname,
-		Phone:    user.Phone,
+		ID:          user.ID,
+		Username:    user.Username,
+		Realname:    user.Realname,
+		Phone:       user.Phone,
+		Avatar:      user.Avatar,
+		CompanyName: user.CompanyName,
 	}
 	c.Response(&vingo.ResponseData{Data: model.UserLoginResult{
 		Token: jwt.JwtIssued(jwt.JwtBody[model.UserSimple]{

@@ -185,7 +185,7 @@ func AccountList(query *model.AccountQuery) page.Result {
 	if query.OrgID > 0 {
 		db = db.Where("acc.org_id=?", query.OrgID)
 	}
-	db = mysql.LikeOr(db, query.Keyword, "username", "phone", "realname")
+	db = mysql.LikeOr(db, query.Keyword, "username", "phone", "realname", "company_name")
 	if query.UserID > 0 {
 		db = db.Where("acc.user_id=?", query.UserID)
 	}

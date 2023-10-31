@@ -20,6 +20,8 @@ type User struct {
 	Salt        string `gorm:"column:salt" json:"-"`
 	Status      int8   `gorm:"column:status" json:"status"`                       // 1-启用|2-禁用
 	Remark      string `gorm:"column:remark" json:"remark"`                       // 备注
+	Avatar      string `gorm:"column:avatar" json:"avatar"`                       // 头像
+	CompanyName string `gorm:"column:company_name" json:"companyName"`            // 所在公司
 	LastIP      string `gorm:"column:last_ip" json:"lastIp"`                      // 最后登录IP
 	LastTime    string `gorm:"column:last_time" json:"lastTime"`                  // 最后登录时间
 	FromChannel string `gorm:"column:from_channel;default:组织" json:"fromChannel"` // 来源渠道
@@ -43,13 +45,15 @@ type UserChangePwdBody struct {
 }
 
 type UserSimple struct {
-	ID       uint   `gorm:"column:id" json:"userId"`
-	Username string `gorm:"column:username" json:"username"`
-	Realname string `gorm:"column:realname" json:"realname"`
-	Phone    string `gorm:"column:phone" json:"phone"`
-	Password string `gorm:"column:password" json:"-"`
-	Salt     string `gorm:"column:salt" json:"-"`
-	Status   int8   `gorm:"column:status" json:"-"`
+	ID          uint   `gorm:"column:id" json:"userId"`
+	Username    string `gorm:"column:username" json:"username"`
+	Realname    string `gorm:"column:realname" json:"realname"`
+	Phone       string `gorm:"column:phone" json:"phone"`
+	Avatar      string `gorm:"column:avatar" json:"avatar"`
+	CompanyName string `gorm:"column:company_name" json:"companyName"`
+	Password    string `gorm:"column:password" json:"-"`
+	Salt        string `gorm:"column:salt" json:"-"`
+	Status      int8   `gorm:"column:status" json:"-"`
 }
 
 func (s *User) CheckPatchWhite(field string) {
