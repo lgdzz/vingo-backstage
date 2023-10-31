@@ -75,6 +75,17 @@ func ChangePwd(c *vingo.Context) {
 	c.Response(&vingo.ResponseData{NoLog: true})
 }
 
+// 修改个人信息
+func ChangeInfo(c *vingo.Context) {
+	var body = vingo.GetRequestBody[model.UserChangeInfoBody](c)
+	var user = mysql.Get[model.User](c.GetUserId())
+	user.Avatar = body.Avatar
+	user.Realname = body.Realname
+	user.CompanyName = body.CompanyName
+	mysql.Updates(&user, "realname", "avatar", "company_name")
+	c.ResponseSuccess()
+}
+
 // 我的账户列表
 func Accounts(c *vingo.Context) {
 	c.ResponseBody(service.MyAccountList(&model.AccountQuery{UserID: c.GetUserId(), Status: vingo.Enable}))

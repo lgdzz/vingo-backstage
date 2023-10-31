@@ -13,6 +13,7 @@ func RegisterAdmin(g *gin.RouterGroup) {
 	g.Use(AdminAuthMiddle())
 
 	vingo.RoutesPost(g, "/change-pwd", ChangePwd)
+	vingo.RoutesPost(g, "/change-info", ChangeInfo)
 	vingo.RoutesGet(g, "/accounts", Accounts)
 	vingo.RoutesGet(g, "/route-menu/:aid", RouteMenu2)
 	vingo.RoutesGet(g, "/route-menu-ant/:aid", RouteMenu)

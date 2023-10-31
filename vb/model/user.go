@@ -44,6 +44,12 @@ type UserChangePwdBody struct {
 	NewPassword string
 }
 
+type UserChangeInfoBody struct {
+	Avatar      string `json:"avatar"`
+	Realname    string `json:"realname"`
+	CompanyName string `json:"companyName"`
+}
+
 type UserSimple struct {
 	ID          uint   `gorm:"column:id" json:"userId"`
 	Username    string `gorm:"column:username" json:"username"`
