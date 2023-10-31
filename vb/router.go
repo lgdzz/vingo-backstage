@@ -20,6 +20,8 @@ func RegisterAdmin(g *gin.RouterGroup) {
 	// ======注册账户中间件======
 	g.Use(AdminAccountMiddle())
 
+	vingo.RoutesGet(g, "/openapi.org.account", SearchOrgAccount)
+
 	vingo.RoutesPost(g, "/components", LoginComponent)
 
 	// ======权限验证中间件======
