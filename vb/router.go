@@ -14,6 +14,7 @@ func RegisterAdmin(g *gin.RouterGroup) {
 
 	vingo.RoutesPost(g, "/change-pwd", ChangePwd)
 	vingo.RoutesPost(g, "/change-info", ChangeInfo)
+	vingo.RoutesPost(g, "/change-avatar", ChangeAvatar)
 	vingo.RoutesGet(g, "/accounts", Accounts)
 	vingo.RoutesGet(g, "/route-menu/:aid", RouteMenu2)
 	vingo.RoutesGet(g, "/route-menu-ant/:aid", RouteMenu)

@@ -1,6 +1,7 @@
 package vb
 
 import (
+	"encoding/base64"
 	"fmt"
 	"github.com/lgdzz/vingo-backstage/vb/index"
 	"github.com/lgdzz/vingo-backstage/vb/model"
@@ -84,8 +85,26 @@ func ChangeInfo(c *vingo.Context) {
 	user.Realname = body.Realname
 	user.CompanyName = body.CompanyName
 	user.CompanyJob = body.CompanyJob
-	mysql.Updates(&user, "realname", "avatar", "company_name", "company_job")
+	mysql.Updates(&user, "realname", "company_name", "company_job")
 	c.ResponseSuccess()
+}
+
+// 修改头像
+func ChangeAvatar(c *vingo.Context) {
+	var body = vingo.GetRequestBody[struct {
+		Base64 string `json:"base64"`
+	}](c)
+	decodedData, err := base64.StdEncoding.DecodeString(body.Base64)
+	if err != nil {
+		panic(err)
+	}
+	const avatarDir = "static/avatar"
+	vingo.Mkdir(avatarDir)
+	var user = mysql.Get[model.User](c.GetUserId())
+	vingo.SaveFile(avatarDir, user.Username+".jpg", decodedData)
+	user.Avatar = avatarDir + "/" + user.Username + ".jpg"
+	mysql.Updates(&user, "avatar")
+	c.ResponseBody(user.Avatar)
 }
 
 // 我的账户列表
