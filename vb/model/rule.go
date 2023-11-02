@@ -8,9 +8,10 @@ import (
 
 // Rule 权限规则
 type Rule struct {
-	ID               uint   `gorm:"primaryKey;column:id" json:"id"`
+	Id               uint   `gorm:"primaryKey;column:id" json:"id"`
 	Pid              uint   `gorm:"column:pid" json:"pid"`
 	Path             string `gorm:"column:path" json:"path"`
+	Len              uint   `gorm:"column:len" json:"len"`
 	Name             string `gorm:"column:name" json:"name"`     // 规则名称
 	Type             string `gorm:"column:type" json:"type"`     // 1-页面|2-操作
 	Method           string `gorm:"column:method" json:"method"` // 接口请求方式
@@ -42,9 +43,12 @@ func (s *Rule) Parent() Rule {
 
 func (s *Rule) SetPath(tx *gorm.DB) {
 	if s.Pid > 0 {
-		s.Path = fmt.Sprintf("%v,%d", s.Parent().Path, s.ID)
+		parent := s.Parent()
+		s.Path = fmt.Sprintf("%v,%d", parent.Path, s.Id)
+		s.Len = parent.Len + 1
 	} else {
-		s.Path = fmt.Sprintf("%d", s.ID)
+		s.Path = fmt.Sprintf("%d", s.Id)
+		s.Len = 1
 	}
 	tx.Select("path").Updates(&s)
 }

@@ -121,7 +121,7 @@ func GetRoleTreeByOrgId(orgId uint, status int8, ctx *vingo.Context) (result []m
 	if status > 0 {
 		db = db.Where("status=?", status)
 	}
-	db.Find(&roles)
+	db.Order("len asc,id asc").Find(&roles)
 	if len(roles) == 0 {
 		result = []map[string]any{}
 		return
@@ -146,7 +146,7 @@ func GetRuleTreeByRoleId(roleId uint, keyword string) []map[string]any {
 	} else {
 		db := mysql.Db
 		db = mysql.LikeOr(db, keyword, "name")
-		db.Find(&rules)
+		db.Order("len asc,sort asc,id asc").Find(&rules)
 	}
 	return vingo.Tree(&rules, "pid", false)
 }
@@ -159,9 +159,9 @@ func GetRuleListByRole(role *model.Role, rules *[]model.Rule, half bool) {
 			if len(halfRules) == 0 {
 				halfRules = append(halfRules, 0)
 			}
-			mysql.Where("id NOT IN(?)", halfRules).Order("sort asc,id asc").Find(&rules)
+			mysql.Where("id NOT IN(?)", halfRules).Order("len asc,sort asc,id asc").Find(&rules)
 		} else {
-			mysql.Db.Order("sort asc,id asc").Find(&rules)
+			mysql.Order("len asc,sort asc,id asc").Find(&rules)
 		}
 	} else {
 		if half {
@@ -174,7 +174,7 @@ func GetRuleListByRole(role *model.Role, rules *[]model.Rule, half bool) {
 		for _, v := range *rules {
 			paths = append(paths, strings.Split(strings.Trim(v.Path, ","), ",")...)
 		}
-		mysql.Where("id in(?)", vingo.SliceStringToInt(vingo.SliceUniqueString(paths))).Order("sort asc,id asc").Find(&rules)
+		mysql.Where("id in(?)", vingo.SliceStringToInt(vingo.SliceUniqueString(paths))).Order("len asc,sort asc,id asc").Find(&rules)
 	}
 	return
 }

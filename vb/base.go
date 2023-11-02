@@ -488,7 +488,7 @@ func RuleUpdate(c *vingo.Context) {
 func RuleDelete(c *vingo.Context) {
 	var rule = mysql.Get[model.Rule](c.Param("id"))
 	// 安全验证，如果有子级数据禁止删除
-	mysql.CheckHasChild(&model.Rule{}, rule.ID)
+	mysql.CheckHasChild(&model.Rule{}, rule.Id)
 	mysql.Delete(&rule)
 	c.ResponseSuccess()
 }

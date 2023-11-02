@@ -13,6 +13,7 @@ type Role struct {
 	Pid       uint          `gorm:"column:pid" json:"pid"`
 	OrgID     uint          `gorm:"column:org_id" json:"orgId"`
 	Path      string        `gorm:"column:path" json:"path"`
+	Len       uint          `gorm:"column:len" json:"len"`
 	Name      string        `gorm:"column:name" json:"name"`
 	Master    int8          `gorm:"column:master" json:"master"`
 	Status    int8          `gorm:"column:status" json:"status"`                   // 1-启用|2-禁用
@@ -37,9 +38,12 @@ func (s *Role) Parent() Role {
 
 func (s *Role) SetPath(tx *gorm.DB) {
 	if s.Pid > 0 {
-		s.Path = fmt.Sprintf("%v,%d", s.Parent().Path, s.ID)
+		parent := s.Parent()
+		s.Path = fmt.Sprintf("%v,%d", parent.Path, s.ID)
+		s.Len = parent.Len + 1
 	} else {
 		s.Path = fmt.Sprintf("%d", s.ID)
+		s.Len = 1
 	}
 	tx.Select("path").Updates(&s)
 }

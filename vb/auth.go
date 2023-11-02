@@ -166,7 +166,7 @@ func setRights(rules *[]model.Rule, accountId string) {
 func clientPermissions(pageList *[]model.Rule, apiList *[]model.Rule) []model.Permission {
 	permissionIds := make(map[uint]string)
 	for _, v := range *pageList {
-		permissionIds[v.ID] = v.ClientRouter
+		permissionIds[v.Id] = v.ClientRouter
 	}
 
 	tmp := make(map[uint]model.Permission)
@@ -177,7 +177,7 @@ func clientPermissions(pageList *[]model.Rule, apiList *[]model.Rule) []model.Pe
 			var item model.Permission
 			item.ID = v.ClientRouter
 			item.Operation = make([]string, 0)
-			tmp[v.ID] = item
+			tmp[v.Id] = item
 		}
 	}
 
@@ -208,7 +208,7 @@ func clientRouters(pageList *[]model.Rule, id uint) []any {
 		if v.Pid != id {
 			continue
 		}
-		child := clientRouters(&*pageList, v.ID)
+		child := clientRouters(&*pageList, v.Id)
 		if len(child) > 0 {
 			item := make(map[string]any)
 			item["router"] = v.ClientRouter
@@ -249,12 +249,12 @@ func RouteMenu2(c *vingo.Context) {
 		meta := map[string]any{}
 		meta["title"] = v.Name
 		meta["icon"] = v.Icon
-		if _, ok := operation[v.ID]; ok {
-			meta["auth"] = operation[v.ID]
+		if _, ok := operation[v.Id]; ok {
+			meta["auth"] = operation[v.Id]
 		} else {
 			meta["auth"] = make([]any, 0)
 		}
-		item["id"] = v.ID
+		item["id"] = v.Id
 		item["pid"] = v.Pid
 		item["path"] = v.ClientRouter
 		item["name"] = v.ClientRouteName
