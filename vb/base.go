@@ -46,6 +46,7 @@ func UserCreate(c *vingo.Context) {
 	// 唯一验证
 	service.CheckUserUnique(0, "username", body.Username)
 	service.CheckUserUnique(0, "phone", body.Phone)
+	body.Avatar = "api/static/avatar/default.jpg" // 默认头像
 	mysql.Create(&body)
 	c.ResponseSuccess()
 }
@@ -324,6 +325,7 @@ func AccountCreate(c *vingo.Context) {
 			user.Salt = vingo.RandomString(5)
 			user.Password = vingo.PasswordToCipher(body.Password, user.Salt)
 			user.Status = vingo.Enable
+			user.Avatar = "api/static/avatar/default.jpg" // 默认头像
 			tx := mysql.Begin()
 			defer mysql.AutoCommit(tx)
 			// 注册账号

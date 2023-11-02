@@ -102,7 +102,7 @@ func ChangeAvatar(c *vingo.Context) {
 	vingo.Mkdir(avatarDir)
 	var user = mysql.Get[model.User](c.GetUserId())
 	vingo.SaveFile(avatarDir, user.Username+".jpg", decodedData)
-	user.Avatar = avatarDir + "/" + user.Username + ".jpg"
+	user.Avatar = "/" + avatarDir + "/" + user.Username + ".jpg"
 	mysql.Updates(&user, "avatar")
 	c.ResponseBody(user.Avatar)
 }
