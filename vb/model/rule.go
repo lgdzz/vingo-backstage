@@ -50,5 +50,5 @@ func (s *Rule) SetPath(tx *gorm.DB) {
 		s.Path = fmt.Sprintf("%d", s.Id)
 		s.Len = 1
 	}
-	tx.Select("path").Updates(&s)
+	tx.Select("path", "len").Updates(&s)
 }

@@ -45,7 +45,7 @@ func (s *Role) SetPath(tx *gorm.DB) {
 		s.Path = fmt.Sprintf("%d", s.ID)
 		s.Len = 1
 	}
-	tx.Select("path").Updates(&s)
+	tx.Select("path", "len").Updates(&s)
 }
 
 // 验证是否被账户使用
