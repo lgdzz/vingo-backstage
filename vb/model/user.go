@@ -27,6 +27,7 @@ type User struct {
 	LastTime    string `gorm:"column:last_time" json:"lastTime"`                  // 最后登录时间
 	FromChannel string `gorm:"column:from_channel;default:组织" json:"fromChannel"` // 来源渠道
 	FromID      uint   `gorm:"column:from_id" json:"fromId"`                      // 来源ID
+	WxOpenid    string `gorm:"column:wx_openid" json:"wxOpenid"`                  // 绑定微信
 }
 
 // TableName get sql table name.获取数据库表名
