@@ -313,6 +313,17 @@ func AccountCreate(c *vingo.Context) {
 	case "reg":
 		// 验证密码强度
 		vingo.PasswordStrength(body.Password, index.Config.System.Auth.Strength)
+		// 验证最大用户数
+		var orgExtend model.OrgExtend
+		if !mysql.Exists(&orgExtend, "org_id=?", body.OrgID) {
+			panic("组长信息未找到")
+		}
+		var accountCount int64
+		mysql.Model(&model.Account{}).Where("org_id=?", body.OrgID).Count(&accountCount)
+		if accountCount+1 > int64(orgExtend.MaxMember) {
+			panic("组织已达最大用户数，如需扩容请联系管理员")
+		}
+
 		// 账号不存在，先注册再绑定
 		func(body *model.AccountBody) {
 			service.CheckUserUnique(0, "username", body.Username) // 验证用户名是否存在
@@ -321,7 +332,7 @@ func AccountCreate(c *vingo.Context) {
 			user.Realname = body.Realname
 			user.Phone = body.Phone
 			user.Remark = body.Remark
-			user.FromID = body.FromID
+			user.FromID = body.OrgID
 			user.Salt = vingo.RandomString(5)
 			user.Password = vingo.PasswordToCipher(body.Password, user.Salt)
 			user.Status = vingo.Enable

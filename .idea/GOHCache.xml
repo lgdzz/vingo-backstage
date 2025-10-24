@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoORMHelperCache">
+    <option name="schemaMapping">
+      <map>
+        <entry key="AccessTokenResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/work/weixin/weixin.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Account">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountList">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Client">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/work/weixin/weixin.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Config">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/work/weixin/weixin.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Department">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/work/weixin/weixin.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentListResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/work/weixin/weixin.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Dept">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptMember">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dept_member.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptMemberItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dept_member.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptSimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptTreeItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Dictionary">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dictionary.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DictionarySimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/dictionary.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ErrorResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/work/weixin/weixin.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LoginComponentMethod">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/component.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LoginComponentResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/component.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LoginLog">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/login_log.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Org">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgExtend">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org_extend.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgGrade">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org_grade.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgGradeExtends">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org_grade.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgGradeTreeItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org_grade.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgTree">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgTreeItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Permission">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/rule.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Role">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/role.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Rule">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/rule.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserChangeInfoBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserChangePwdBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserLock">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user_lock.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserLoginBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserLoginResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserRegisterBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserSimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vb/model/user.go" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="scannedPathMapping">
+      <map>
+        <entry key="file://$PROJECT_DIR$/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697094209344" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/router/router.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698135388702" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/auth.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698894301389" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/base.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1761277325410" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/component.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698637147049" />
+              <option name="schema">
+                <list>
+                  <option value="LoginComponentMethod" />
+                  <option value="LoginComponentResult" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/index/config.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1696842659940" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/index/init.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697101611759" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/middleware.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1696842714338" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698722994612" />
+              <option name="schema">
+                <list>
+                  <option value="Account" />
+                  <option value="AccountQuery" />
+                  <option value="AccountList" />
+                  <option value="AccountBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/dept.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697102045151" />
+              <option name="schema">
+                <list>
+                  <option value="Dept" />
+                  <option value="DeptQuery" />
+                  <option value="DeptSimple" />
+                  <option value="DeptTreeItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/dept_member.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697096642867" />
+              <option name="schema">
+                <list>
+                  <option value="DeptMember" />
+                  <option value="DeptMemberItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/dictionary.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693383538352" />
+              <option name="schema">
+                <list>
+                  <option value="Dictionary" />
+                  <option value="DictionarySimple" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/login_log.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1672900298000" />
+              <option name="schema">
+                <list>
+                  <option value="LoginLog" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/org.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697081574736" />
+              <option name="schema">
+                <list>
+                  <option value="Org" />
+                  <option value="OrgQuery" />
+                  <option value="OrgTree" />
+                  <option value="OrgTreeItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/org_extend.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1687154441166" />
+              <option name="schema">
+                <list>
+                  <option value="OrgExtend" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/org_grade.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697530430784" />
+              <option name="schema">
+                <list>
+                  <option value="OrgGrade" />
+                  <option value="OrgGradeExtends" />
+                  <option value="OrgGradeTreeItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/role.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698974999262" />
+              <option name="schema">
+                <list>
+                  <option value="Role" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/rule.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698974991585" />
+              <option name="schema">
+                <list>
+                  <option value="Rule" />
+                  <option value="Permission" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704355112250" />
+              <option name="schema">
+                <list>
+                  <option value="User" />
+                  <option value="UserLoginBody" />
+                  <option value="UserChangePwdBody" />
+                  <option value="UserChangeInfoBody" />
+                  <option value="UserSimple" />
+                  <option value="UserLoginResult" />
+                  <option value="UserRegisterBody" />
+                  <option value="UserQuery" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/model/user_lock.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1677990790000" />
+              <option name="schema">
+                <list>
+                  <option value="UserLock" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/openapi.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698715508461" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/router.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698830274720" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/service/base.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698892786029" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/work/weixin/sync.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697101923714" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vb/work/weixin/weixin.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697101723901" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                  <option value="Client" />
+                  <option value="ErrorResponse" />
+                  <option value="AccessTokenResponse" />
+                  <option value="DepartmentListResponse" />
+                  <option value="Department" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableStructMapping">
+      <map>
+        <entry key="access_token_response" value="AccessTokenResponse" />
+        <entry key="account" value="Account" />
+        <entry key="account_body" value="AccountBody" />
+        <entry key="account_list" value="AccountList" />
+        <entry key="account_query" value="AccountQuery" />
+        <entry key="client" value="Client" />
+        <entry key="config" value="Config" />
+        <entry key="department" value="Department" />
+        <entry key="department_list_response" value="DepartmentListResponse" />
+        <entry key="dept" value="Dept" />
+        <entry key="dept_member" value="DeptMember" />
+        <entry key="dept_member_item" value="DeptMemberItem" />
+        <entry key="dept_query" value="DeptQuery" />
+        <entry key="dept_simple" value="DeptSimple" />
+        <entry key="dept_tree_item" value="DeptTreeItem" />
+        <entry key="dictionary" value="Dictionary" />
+        <entry key="dictionary_simple" value="DictionarySimple" />
+        <entry key="error_response" value="ErrorResponse" />
+        <entry key="login_component_method" value="LoginComponentMethod" />
+        <entry key="login_component_result" value="LoginComponentResult" />
+        <entry key="login_log" value="LoginLog" />
+        <entry key="org" value="Org" />
+        <entry key="org_extend" value="OrgExtend" />
+        <entry key="org_grade" value="OrgGrade" />
+        <entry key="org_grade_extends" value="OrgGradeExtends" />
+        <entry key="org_grade_tree_item" value="OrgGradeTreeItem" />
+        <entry key="org_query" value="OrgQuery" />
+        <entry key="org_tree" value="OrgTree" />
+        <entry key="org_tree_item" value="OrgTreeItem" />
+        <entry key="permission" value="Permission" />
+        <entry key="role" value="Role" />
+        <entry key="rule" value="Rule" />
+        <entry key="user" value="User" />
+        <entry key="user_change_info_body" value="UserChangeInfoBody" />
+        <entry key="user_change_pwd_body" value="UserChangePwdBody" />
+        <entry key="user_lock" value="UserLock" />
+        <entry key="user_login_body" value="UserLoginBody" />
+        <entry key="user_login_result" value="UserLoginResult" />
+        <entry key="user_query" value="UserQuery" />
+        <entry key="user_register_body" value="UserRegisterBody" />
+        <entry key="user_simple" value="UserSimple" />
+      </map>
+    </option>
+    <option name="lastTimeChecked" value="1761275695536" />
+  </component>
+</project>
